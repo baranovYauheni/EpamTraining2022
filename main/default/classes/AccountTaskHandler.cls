@@ -9,7 +9,7 @@ public with sharing class AccountTaskHandler {
                                             FROM Tasks
                                         ) 
                                     FROM Account 
-                                    WHERE ID IN :accountIds
+                                    WHERE Id IN :accountIds
                                 ];
         User randomUser = getRandomUser();
 
@@ -34,7 +34,7 @@ public with sharing class AccountTaskHandler {
     }
 
     // SOQL method for searching random user
-    
+
     public static User getRandomUser() {
         List<User> user = [
                             SELECT Id 
