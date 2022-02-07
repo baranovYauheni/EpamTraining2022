@@ -14,14 +14,14 @@ public with sharing class AccountTaskHandler {
         User randomUser = getRandomUser();
 
         // Check how many Tasks do Account have
-
-        if (accounts.size() > 0) {
-            Account account = accounts[0];
-            if(account.CreatedDate == account.LastModifiedDate) {
-                insert new Task(
-                    Subject = 'Negotioations with ' + account.Name,
-                    WhatId  = account.Id
-                );
+        for(Account account: accounts) {
+            if (accounts.size() > 0) {
+            // Account account = accounts[0];            
+                if(account.CreatedDate == account.LastModifiedDate) {
+                    insert new Task(
+                        Subject = 'Negotioations with ' + account.Name,
+                        WhatId  = account.Id
+                    );
             } else {
                 if(account.Tasks.size() > 3) {
                     for(Task task: account.Tasks) {
@@ -29,10 +29,10 @@ public with sharing class AccountTaskHandler {
                     }
                     update account.Tasks;
                 }
-            }    
-        }        
+            }               
+        }
     }
-
+}
     // SOQL method for searching random user
 
     public static User getRandomUser() {
