@@ -12,7 +12,9 @@ public with sharing class AccountTaskHandler {
                                     WHERE ID IN :accountIds
                                 ];
         User randomUser = getRandomUser();
+
         // Check how many Tasks do Account have
+
         if (accounts.size() > 0) {
             Account account = accounts[0];
             if(account.CreatedDate == account.LastModifiedDate) {
@@ -30,7 +32,9 @@ public with sharing class AccountTaskHandler {
             }    
         }        
     }
+
     // SOQL method for searching random user
+    
     public static User getRandomUser() {
         List<User> user = [
                             SELECT Id 
